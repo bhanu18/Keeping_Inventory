@@ -14,12 +14,12 @@
                   <h1> Add Sale</h1>
                   <form method="post">
   <div class="form-group">
-    <label for="exampleInputEmail1">Sale ID</label>
-    <input type="text" class="form-control" id="exampleInputEmail1" name="id">
+    <label >Sale ID</label>
+    <input type="text"  name="id" class="form-control" id="exampleInputEmail1" name="id">
   </div>
   <div class="form-group">
-      <label for="exampleInputEmail1">Product</label>
-    <select  class="form-control" id="supplier-select" >
+      <label >Product</label>
+    <select  class="form-control" name="product" id="supplier-select" >
 
   <option value="">Select a Product </option>
                 <?php
@@ -41,39 +41,41 @@ if (!$result) {
             </select>
   </div>
                       <div class="form-group">
-    <label for="exampleInputPassword1">Date</label>
-    <input type="date" class="form-control" id="" name="date">
+    <label >Date</label>
+    <input type="date" name="date" class="form-control" id="" >
   </div>
   <div class="form-group">
-    <label for="exampleInputPassword1">Sale Quantity</label>
-    <input type="text" class="form-control" id="" name="quantity">
+    <label >Sale Quantity</label>
+    <input type="text" name="quantity" class="form-control" id="">
   </div>
                       <div class="form-group">
-    <label for="exampleInputPassword1">Sale Price</label>
-    <input type="text" class="form-control" id="" name="price">
+    <label >Sale Price</label>
+    <input type="text" name="price" class="form-control" id="">
   </div>
   <button type="submit" class="btn btn-primary">Submit</button>
 </form>
     
              <?php 
-      $id = isset($_POST['id']);
-      $product = isset($_POST['product']);
-      $date =isset($_POST['date']);
-      $quantity = isset($_POST['quantity']);
-      $price = isset($_POST['price']);
+                  //if(isset($_POST['submit'])){
+      $id = $_POST['id'];
+      $product = $row['id'];
+      $date =$_POST['date'];
+      $quan = $_POST['quantity'];
+      $price = $_POST['price'];
     $link= mysqli_connect('localhost','root','','store','3308');
 if(!$link){
     die ('connection unsuccessful'. mysqli_connect_error($link));
 }
-      $sql = "INSERT INTO items_sale (sale_id, prod_id, date, sale_quantity, sale_price) VALUES ('$id','$product','$date','$quantity','$price')";
+      $sql = "INSERT INTO items_sale (sale_id, prod_id, date, sale_quantity, sale_price) VALUES ('$id','$product','$date','$quan','$price')";
       
       if (mysqli_query($link, $sql)) {
-  echo "New record created successfully";
+  echo "New record created successfully <br>";
           echo "We will now redirect you to the members area";
 		header("Location:http://localhost/store/Sale.php");
 } else {
   echo "Error: " . $sql . "<br>" . mysqli_error($link);
 }
+                  //}
       ?>
         </div>
       </div>
