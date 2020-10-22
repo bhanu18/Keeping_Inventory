@@ -22,7 +22,7 @@
 
   <option value="">Select a Product </option>
                 <?php
-                $link = mysqli_connect('localhost','root','','store','3308');
+                $link = mysqli_connect("localhost", "root", '',"store",'3308');
     if (!$link) {
     die('Could not connect: ' . mysqli_connect_error());
 }
@@ -49,13 +49,13 @@
 </form>
     
              <?php 
-                  //if(isset($_POST['submit'])){
-      $id = $_POST['id']??'';
+                  if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+      $id = $_POST['id'];
       $product = $row['id'];
-      $date =$_POST['date']??'';
-      $quan = $_POST['quantity']??'';
-      $price = $_POST['price']??'';
-    $link= mysqli_connect('localhost','root','','store','3308');
+      $date =$_POST['date'];
+      $quan = $_POST['quantity'];
+      $price = $_POST['price'];
+    $link= mysqli_connect("localhost", "root", '',"store",'3308');
 if(!$link){
     die ('connection unsuccessful'. mysqli_connect_error($link));
 }
@@ -67,7 +67,7 @@ if(!$link){
 } else {
   echo "Error: " . $sql . "<br>" . mysqli_error($link);
 }
-                  //}
+                  }
       ?>
         </div>
       </div>

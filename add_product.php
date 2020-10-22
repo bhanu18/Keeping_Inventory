@@ -1,3 +1,6 @@
+<?php
+include('session.php');
+?>
 <!doctype html>
 <html lang="en">
   <head>
@@ -38,12 +41,13 @@
           </div>
       </div>
     <?php 
+    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
       $name = $_POST['name'];
       $cost = $_POST['cost'];
       $price =$_POST['price'];
       $color = $_POST['color'];
       $quantity = $_POST['quantity'];
-    $link= mysqli_connect('localhost','root','','store','3308');
+    $link= mysqli_connect("localhost", "root", '',"store",'3308');
 if(!$link){
     die ('connection unsuccessful'. mysqli_connect_error($link));
 }
@@ -57,6 +61,7 @@ if(!$link){
 		header("Location:http://localhost/store/inventory.php");
 } else {
   echo "Error: " . $sql . "<br>" . mysqli_error($link);
+}
 }
       ?>
   </body>

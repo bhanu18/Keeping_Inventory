@@ -1,3 +1,6 @@
+<?php
+include('session.php');
+?>
 <!doctype html>
 <html lang="en">
   <head>
@@ -25,7 +28,7 @@
     </tr>
   </thead>
   <tbody>
-      <?php $link= mysqli_connect('localhost','root','','store','3308');
+      <?php $link= mysqli_connect("localhost", "root", '',"store",'3308');
 if(!$link){
     die ('connection unsuccessful'. mysqli_error($link));
 }

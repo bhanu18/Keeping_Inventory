@@ -38,7 +38,7 @@
 Sign Up</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="login.php"><i class="fa fa-sign-in" aria-hidden="true"></i>
+        <a class="nav-link" href="signin.php"><i class="fa fa-sign-in" aria-hidden="true"></i>
 Login</a>
       </li>
     </ul>
