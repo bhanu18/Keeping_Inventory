@@ -1,7 +1,8 @@
 <?php
+include_once("login.php");
 if(isset($_SESSION['login_user'])){
-header("location: home.php");
-}
+header("location: http://localhost/store/home.php");
+ }
 ?><!doctype html>
 <html lang="en">
   <head>
@@ -51,7 +52,7 @@ font-weight: bold;
       </div>
        <div class="container" id="logInForm">
               <div class="jumbotron">
-                  <form method="post" action="login.php">
+                  <form method="post">
                       <h1>Sign In!</h1>
   <div class="form-group">
     <label for="exampleInputEmail1">Email address</label>

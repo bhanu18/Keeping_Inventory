@@ -1,3 +1,6 @@
+<?php
+include('session.php');
+?>
 <!doctype html>
 <html lang="en">
   <head>
@@ -62,7 +65,7 @@ if(!$link){
       $sql = "INSERT INTO items_sale (sale_id, prod_id, date, sale_quantity, sale_price) VALUES ('$id','$product','$date','$quan','$price')";
       
       if (mysqli_query($link, $sql)) {
-		header("Location:http://localhost/store/Sale.php");
+		header("Location: http://localhost/store/sale.php");
           exit();
 } else {
   echo "Error: " . $sql . "<br>" . mysqli_error($link);
