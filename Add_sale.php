@@ -15,10 +15,12 @@ include('session.php');
               <div class="jumbotron">
                   <h1> Add Sale</h1>
                   <form method="post">
+<!--
   <div class="form-group">
     <label >Sale ID</label>
     <input type="text"  name="id" class="form-control" id="exampleInputEmail1" name="id">
   </div>
+-->
   <div class="form-group">
       <label >Product</label>
     <select  class="form-control" name="product" id="supplier-select" >
@@ -38,7 +40,7 @@ include('session.php');
   </div>
                       <div class="form-group">
     <label >Date</label>
-    <input type="date" name="date" class="form-control" id="" >
+    <input type="date" name="date" class="form-control" id="date" >
   </div>
   <div class="form-group">
     <label >Sale Quantity</label>
@@ -53,8 +55,8 @@ include('session.php');
     
              <?php 
                   if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-      $id = $_POST['id'];
-      $product = $row['id'];
+     // $id = $_POST['id'];
+      $product = intval($_POST['product']);
       $date =$_POST['date'];
       $quan = $_POST['quantity'];
       $price = $_POST['price'];
@@ -62,16 +64,22 @@ include('session.php');
 if(!$link){
     die ('connection unsuccessful'. mysqli_connect_error($link));
 }
-      $sql = "INSERT INTO items_sale (sale_id, prod_id, date, sale_quantity, sale_price) VALUES ('$id','$product','$date','$quan','$price')";
+      $sql = "INSERT INTO items_sale (prod_id, date, sale_quantity, sale_price) VALUES ('$product','$date','$quan','$price')";
       
       if (mysqli_query($link, $sql)) {
-		header("Location: http://localhost/store/sale.php");
-          exit();
+          if (headers_sent()) {
+    die("Redirect failed. Please click on this link: <a href='sale.php'>sale</a>");
+}
+else{
+    exit(header("Location: localhost/store/sale.php"));
+}
 } else {
   echo "Error: " . $sql . "<br>" . mysqli_error($link);
 }
                   }
       ?>
+                  <script>
+                  document.getElementById('date').innerHTML = date(); </script>
         </div>
       </div>
       </body>
