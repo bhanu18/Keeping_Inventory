@@ -29,10 +29,7 @@ include('session.php');
     </tr>
   </thead>
   <tbody>
-      <?php $link= mysqli_connect("localhost", "root", '',"store",'3308');
-if(!$link){
-    die ('connection unsuccessful'. mysqli_error($link));
-}
+      <?php 
       $sql = "SELECT sale_id,Name, Date, sale_quantity, sale_price FROM items_sale JOIN product ON product.Id = items_sale.prod_id order by sale_id asc";
       
       $result = mysqli_query($link,$sql);
@@ -47,6 +44,7 @@ if(!$link){
       <td>'.$row["Date"].'</td>
       <td>'.$row["sale_quantity"].'</td>
       <td>'.$row["sale_price"].'</td>
+      <td><a class="btn btn-primary" href="update_sale.php?sale_id='.$row["sale_id"].'">Update</a></td>
     </tr>';
       }
       mysqli_close($link);

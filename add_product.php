@@ -47,10 +47,6 @@ include('session.php');
       $price =$_POST['price'];
       $color = $_POST['color'];
       $quantity = $_POST['quantity'];
-    $link= mysqli_connect("localhost", "root", '',"store",'3308');
-if(!$link){
-    die ('connection unsuccessful'. mysqli_connect_error($link));
-}
       //$sql= 'SELECT id FROM product';
       //$row = mysqli_fetch_array(mysqli_query($link, $sql));
       $sql = "INSERT INTO product (name, Cost_price, price, Color,quantiy) VALUES ('$name','$price','$cost','$color','$quantity')";

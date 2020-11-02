@@ -27,10 +27,6 @@ include('session.php');
 
   <option value="">Select a Product </option>
                 <?php
-                $link = mysqli_connect("localhost", "root", '',"store",'3308');
-    if (!$link) {
-    die('Could not connect: ' . mysqli_connect_error());
-}
                 $query="select id,name from product";
                 $result = mysqli_query($link,$query);
                     while($row = mysqli_fetch_array($result)){
@@ -60,10 +56,7 @@ include('session.php');
       $date =$_POST['date'];
       $quan = $_POST['quantity'];
       $price = $_POST['price'];
-    $link= mysqli_connect("localhost", "root", '',"store",'3308');
-if(!$link){
-    die ('connection unsuccessful'. mysqli_connect_error($link));
-}
+   
       $sql = "INSERT INTO items_sale (prod_id, date, sale_quantity, sale_price) VALUES ('$product','$date','$quan','$price')";
       
       if (mysqli_query($link, $sql)) {

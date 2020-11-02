@@ -16,7 +16,7 @@ include('session.php');
               <div class="jumbotron">
                   <h1 class="display-4">Inventory</h1>
                   <a class="btn btn-primary" href="add_product.php" role="button">Add Product</a>
-                  <a class="btn btn-primary" href="#" role="button">Update Inventory</a>
+                  <a class="btn btn-primary" href="update_inventory.php" role="button">Update Inventory</a>
           <table class="table table-hover">
   <thead>
     <tr>
@@ -28,10 +28,7 @@ include('session.php');
     </tr>
   </thead>
   <tbody>
-      <?php $link= mysqli_connect("localhost", "root", '',"store",'3308');
-if(!$link){
-    die ('connection unsuccessful'. mysqli_error($link));
-}
+      <?php 
       $sql = "SELECT * FROM product";
       
       $result = mysqli_query($link,$sql);
@@ -43,6 +40,7 @@ if(!$link){
       <td>'.$row["price"].'</td>
       <td>'.$row["Color"].'</td>
       <td>'.$row["Quantiy"].'</td>
+      <td><a class="btn btn-primary" href="update_inventory.php?Id='.$row["Id"].'">Update</a></td>
     </tr>';
       }
       mysqli_close($link);
