@@ -1,12 +1,16 @@
 <?php
 include('session.php');
 
-if(isset($_POST['submit'])) {
-mysqli_query($connection,"UPDATE employee set id='" . $_POST['Id'] . "', Name='" . $_POST['Name'] . "', Cost_price='" . $_POST['Cost_price'] . "', price='" . $_POST['price'] . "' ,color='" . $_POST['Color'] . "',Quantiy='".$_POST['Quantiy']."' WHERE id='" . $_POST['Id'] . "'");
+if($_SERVER['REQUEST_METHOD'] == 'POST' and isset($_POST['submit'])) {
+mysqli_query($connection,"UPDATE inventory set id='" . $_POST['Id'] . "', Name='" . $_POST['Name'] . "', Cost_price='" . $_POST['Cost_price'] . "', price='" . $_POST['price'] . "' ,color='" . $_POST['Color'] . "',Quantiy='".$_POST['Quantiy']."' WHERE id='" . $_POST['Id'] . "'");
+    if(headers_sent){
+        die("Please click the link here <a href='inventory.php'>Inventory</a>");
+    }else{
     header("Location: inventory.php");
+    }
 }
-
-$result = mysqli_query($connection,"Select * from product where id='".$_GET['Id']."'");
+$get_id = (isset($_GET['Id'])) ? $_GET['Id'] : '';
+$result = mysqli_query($connection,"Select * from product where id='".$get_id."'");
 $row = mysqli_fetch_array($result);
 ?>
 <!doctype html>

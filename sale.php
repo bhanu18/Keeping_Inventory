@@ -16,7 +16,6 @@ include('session.php');
       <div class="container">
          <h1 align="centre">Sale</h1> 
           <a class="btn btn-primary" href="Add_sale.php" role="button">Add Sale</a>
-          <a class="btn btn-danger" href="delete_sale.php" role="button">Delete Sale</a>
           
            <table class="table table-hover">
   <thead>
@@ -45,6 +44,7 @@ include('session.php');
       <td>'.$row["sale_quantity"].'</td>
       <td>'.$row["sale_price"].'</td>
       <td><a class="btn btn-primary" href="update_sale.php?sale_id='.$row["sale_id"].'">Update</a></td>
+      <td><a class="btn btn-danger" href="delete_sale.php?sale_id='.$row["sale_id"].'">Delete</a></td>
     </tr>';
       }
       mysqli_close($link);

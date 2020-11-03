@@ -60,6 +60,10 @@ include('session.php');
       $sql = "INSERT INTO items_sale (prod_id, date, sale_quantity, sale_price) VALUES ('$product','$date','$quan','$price')";
       
       if (mysqli_query($link, $sql)) {
+          $result = mysqli_query($connection,"Select * from product where id='".$product."'");
+$row = mysqli_fetch_array($result);
+          $row['Quantiy'] -= $quan; 
+          mysqli_query($link, "UPDATE product set Quantiy ='".$row['Quantiy']."' where Id='".$product."'");
           if (headers_sent()) {
     die("Redirect failed. Please click on this link: <a href='sale.php'>sale</a>");
 }
