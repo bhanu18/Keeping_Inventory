@@ -30,7 +30,7 @@ font-weight: bold;
 
     <div class="container" id="signUpForm">
               <div class="jumbotron">
-<form method="post">
+<form method="post" action="create_user.php">
     <h1>Sign Up!</h1>
   <div class="form-group">
     <label for="exampleInputEmail1">Email address</label>

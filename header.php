@@ -39,7 +39,7 @@ Login</a>
   </div>
 </nav>
 <?php 
-  $link = mysqli_connect("localhost", "root", '',"store","3308");
+  $link = mysqli_connect("localhost", "root", '',"store");
    if(!$link){
     die ("Nooo");
 }

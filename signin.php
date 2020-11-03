@@ -12,7 +12,7 @@
       <div class="container">
               <div class="jumbotron">
     <h1>Sign In!</h1>
-<form>
+<form method="post" action="login.php">
   <div class="form-group">
     <label for="exampleInputEmail1">Email address</label>
     <input type="email" class="form-control" id="email" name="username"aria-describedby="emailHelp">
