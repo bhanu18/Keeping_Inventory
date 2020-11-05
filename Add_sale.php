@@ -43,6 +43,10 @@ include('session.php');
     <input type="text" name="quantity" class="form-control" id="">
   </div>
                       <div class="form-group">
+    <label >Size</label>
+    <input type="text" name="size" class="form-control" id="">
+  </div>
+                      <div class="form-group">
     <label >Sale Price</label>
     <input type="text" name="price" class="form-control" id="">
   </div>
@@ -55,9 +59,10 @@ include('session.php');
       $product = intval($_POST['product']);
       $date =$_POST['date'];
       $quan = $_POST['quantity'];
+     $size = $_POST['size'];
       $price = $_POST['price'];
    
-      $sql = "INSERT INTO items_sale (prod_id, date, sale_quantity, sale_price) VALUES ('$product','$date','$quan','$price')";
+      $sql = "INSERT INTO items_sale (prod_id, date, sale_quantity, sale_price) VALUES ('$product','$date','$quan','$size','$price')";
       
       if (mysqli_query($link, $sql)) {
           $result = mysqli_query($connection,"Select * from product where id='".$product."'");

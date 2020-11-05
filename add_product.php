@@ -32,6 +32,10 @@ include('session.php');
     <label>Color</label>
     <input type="text" name="color" class="form-control" id="">
   </div>
+        <div class="form-group">
+    <label>Size</label>
+    <input type="text" name="size" class="form-control" id="">
+  </div>
      <div class="form-group">
     <label>Quantity</label>
     <input type="text" name="quantity" class="form-control" id="">
@@ -46,10 +50,11 @@ include('session.php');
       $cost = $_POST['cost'];
       $price =$_POST['price'];
       $color = $_POST['color'];
+      $size =$_POST['size'];
       $quantity = $_POST['quantity'];
       //$sql= 'SELECT id FROM product';
       //$row = mysqli_fetch_array(mysqli_query($link, $sql));
-      $sql = "INSERT INTO product (name, Cost_price, price, Color,quantiy) VALUES ('$name','$price','$cost','$color','$quantity')";
+      $sql = "INSERT INTO product (name, Cost_price, price, Color,quantiy) VALUES ('$name','$price','$cost','$color','$size',$quantity')";
       //$sql='INSERT INTO `inventory`(`Product_id`, `Quantity`) VALUES ('.$row['id'].','.$quantity.')';
       if (mysqli_query($link, $sql)) {
   echo "New record created successfully";

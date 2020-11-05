@@ -1,8 +1,31 @@
 <?php
 include('session.php');
 
-if($_SERVER['REQUEST_METHOD'] == 'POST' and isset($_POST['submit'])) {
-mysqli_query($connection,"UPDATE inventory set id='" . $_POST['Id'] . "', Name='" . $_POST['Name'] . "', Cost_price='" . $_POST['Cost_price'] . "', price='" . $_POST['price'] . "' ,color='" . $_POST['Color'] . "',Quantiy='".$_POST['Quantiy']."' WHERE id='" . $_POST['Id'] . "'");
+if($_SERVER['REQUEST_METHOD'] == 'POST') {
+    if(isset($_POST['Id'])){
+    $id= $_POST['Id'];
+    }
+    if(isset($_POST['Name'])){
+    $name=$_POST['Name'];
+}
+if(isset($_POST['Cost_price'])){
+    $cost= $_POST['Cost_price'];
+}
+if (isset($_POST['price'])){
+    $price= $_POST['price'];
+}
+if(isset($_POST['Color'])){
+    $color=$_POST['Color'];
+}
+if(isset($_POST['size'])){
+    $size = $_POST['size'];
+}
+if (isset($_POST['Quantiy'])){
+    $Quantity=$_POST['Quantiy'];
+}
+    
+    $sql= "UPDATE product set id='$id', Name='$name', Cost_price='$cost', price='$price' ,color='$color',size= '$size', Quantiy='$Quantity' WHERE id=$id";
+mysqli_query($connection,$sql);
     if(headers_sent){
         die("Please click the link here <a href='inventory.php'>Inventory</a>");
     }else{
@@ -48,6 +71,10 @@ $row = mysqli_fetch_array($result);
         <div class="form-group">
     <label for="exampleInputPassword1">Color</label>
     <input type="text" class="form-control" name="color" value="<?php echo $row['Color']; ?>" >
+  </div>
+    <div class="form-group">
+    <label for="exampleInputPassword1">Size</label>
+    <input type="text" class="form-control" name="size" value="<?php echo $row['size']; ?>" >
   </div>
     <div class="form-group">
     <label for="exampleInputPassword1">Quantity</label>

@@ -12,8 +12,8 @@ include('session.php');
   </head>
   <body>
       <?php include_once('header.php')?>
-      <div class="jumbotron">
       <div class="container">
+          <div class="jumbotron">
          <h1 align="centre">Sale</h1> 
           <a class="btn btn-primary" href="Add_sale.php" role="button">Add Sale</a>
           
@@ -24,12 +24,13 @@ include('session.php');
       <th scope="col">Name</th>
       <th scope="col">Date</th>
       <th scope="col">Quantity</th>
+        <th scope="col">Size</th>
       <th scope="col">Price</th>
     </tr>
   </thead>
   <tbody>
       <?php 
-      $sql = "SELECT sale_id,Name, Date, sale_quantity, sale_price FROM items_sale JOIN product ON product.Id = items_sale.prod_id order by sale_id asc";
+      $sql = "SELECT sale_id,Name, Date, sale_quantity,items_sale.size, sale_price FROM items_sale JOIN product ON product.Id = items_sale.prod_id order by sale_id asc";
       
       $result = mysqli_query($link,$sql);
       if (!$result) {
@@ -42,6 +43,7 @@ include('session.php');
       <td>'.$row["Name"].'</td>
       <td>'.$row["Date"].'</td>
       <td>'.$row["sale_quantity"].'</td>
+      <td>'.$row["size"].'</td>
       <td>'.$row["sale_price"].'</td>
       <td><a class="btn btn-primary" href="update_sale.php?sale_id='.$row["sale_id"].'">Update</a></td>
       <td><a class="btn btn-danger" href="delete_sale.php?sale_id='.$row["sale_id"].'">Delete</a></td>
