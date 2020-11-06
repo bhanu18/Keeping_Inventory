@@ -25,12 +25,12 @@ if (isset($_POST['Quantiy'])){
 }
     
     $sql= "UPDATE product set id='$id', Name='$name', Cost_price='$cost', price='$price' ,color='$color',size= '$size', Quantiy='$Quantity' WHERE id=$id";
-mysqli_query($connection,$sql);
-    if(headers_sent){
-        die("Please click the link here <a href='inventory.php'>Inventory</a>");
-    }else{
-    header("Location: inventory.php");
-    }
+     if(mysqli_query($connection,$sql)){
+         header("Location: inventory.php");
+     }else{
+         mysqli_error($connection);
+     }
+    
 }
 $get_id = (isset($_GET['Id'])) ? $_GET['Id'] : '';
 $result = mysqli_query($connection,"Select * from product where id='".$get_id."'");
