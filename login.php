@@ -27,7 +27,7 @@ $query = mysqli_query($connection, "select * from users where password='$passwor
 $rows = mysqli_fetch_array($query);
 if ($rows > 1) {
 $_SESSION['login_user']=$username; // Initializing Session
-header("location: http://localhost/store/home.php"); // Redirecting To Other Page
+header("location: home.php"); // Redirecting To Other Page
 } else {
 $error = "Username or Password is invalid";
 }

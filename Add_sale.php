@@ -34,10 +34,12 @@ include('session.php');
 }
 ?></select>
   </div>
+<!--
                       <div class="form-group">
     <label >Date</label>
-    <input type="date" name="date" class="form-control" id="date" >
+    <input type="datetime-local" name="date" class="form-control" id="date" onload="getDate()">
   </div>
+-->
   <div class="form-group">
     <label >Sale Quantity</label>
     <input type="text" name="quantity" class="form-control" id="">
@@ -57,12 +59,12 @@ include('session.php');
                   if ($_SERVER['REQUEST_METHOD'] == 'POST') {
      // $id = $_POST['id'];
       $product = intval($_POST['product']);
-      $date =$_POST['date'];
+      //$date =$_POST['date'];
       $quan = $_POST['quantity'];
      $size = $_POST['size'];
       $price = $_POST['price'];
    
-      $sql = "INSERT INTO items_sale (prod_id, date, sale_quantity, sale_price) VALUES ('$product','$date','$quan','$size','$price')";
+      $sql = "INSERT INTO items_sale (prod_id, sale_quantity,size, sale_price) VALUES ('$product','$quan','$size','$price')";
       
       if (mysqli_query($link, $sql)) {
           $result = mysqli_query($connection,"Select * from product where id='".$product."'");
@@ -81,7 +83,10 @@ else{
                   }
       ?>
                   <script>
-                  document.getElementById('date').innerHTML = date(); </script>
+                      function getDate(){
+                          var today = new Date();
+                  document.getElementById('date').innerHTML = today.getFullYear() +;
+                      }</script>
         </div>
       </div>
       </body>
