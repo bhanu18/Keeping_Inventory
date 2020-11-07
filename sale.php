@@ -16,7 +16,8 @@ include('session.php');
           <div class="jumbotron">
          <h1 align="centre">Sale</h1> 
           <a class="btn btn-primary" href="Add_sale.php" role="button">Add Sale</a>
-          
+          <br>
+          <br>
            <table class="table table-hover">
   <thead>
     <tr>
@@ -26,6 +27,8 @@ include('session.php');
       <th scope="col">Quantity</th>
         <th scope="col">Size</th>
       <th scope="col">Price</th>
+      <th scope="col"></th>
+      <th scope="col"></th>
     </tr>
   </thead>
   <tbody>
