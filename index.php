@@ -1,7 +1,7 @@
 <?php
 include_once("login.php");
 if(isset($_SESSION['login_user'])){
-header("location: http://localhost/store/home.php");
+header("location: home.php");
  }
 ?><!doctype html>
 <html lang="en">
@@ -63,10 +63,7 @@ font-weight: bold;
     <label for="exampleInputPassword1">Password</label>
     <input type="password" class="form-control" name="password" id="password">
   </div>
-  <div class="form-group form-check">
-    <input type="checkbox" class="form-check-input" id="exampleCheck1">
-    <label class="form-check-label" for="exampleCheck1">Check me out</label>
-  </div>
+
   <button type="submit" class="btn btn-primary">Sign In</button>
                       <span><?php echo $error; ?></span>
                       <p><a class="toggleForms">Sign Up</a></p>
