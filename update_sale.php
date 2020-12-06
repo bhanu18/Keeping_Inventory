@@ -56,6 +56,7 @@ $row= mysqli_fetch_array($result);?>
     <input type="text" name="price" class="form-control" value="<?php echo $row['sale_price']; ?>">
   </div>
   <button type="submit" class="btn btn-primary">Submit</button>
+  <?php echo message;?>
 </form>
     </div>
     </div>

@@ -54,7 +54,7 @@ include('session.php');
       $quantity = $_POST['quantity'];
       //$sql= 'SELECT id FROM product';
       //$row = mysqli_fetch_array(mysqli_query($link, $sql));
-      $sql = "INSERT INTO product (name, Cost_price, price, Color,quantiy) VALUES ('$name','$price','$cost','$color','$size',$quantity')";
+      $sql = "INSERT INTO product (Name, Cost_price, price, Color, size, Quantiy) VALUES ('$name','$price','$cost','$color','$size','$quantity')";
       //$sql='INSERT INTO `inventory`(`Product_id`, `Quantity`) VALUES ('.$row['id'].','.$quantity.')';
       if (mysqli_query($link, $sql)) {
   echo "New record created successfully";
