@@ -59,7 +59,7 @@ include('session.php');
       if (mysqli_query($link, $sql)) {
   echo "New record created successfully";
           echo "We will now redirect you to the members area";
-		header("Location:http://localhost/store/inventory.php");
+		header("Location:inventory.php");
 } else {
   echo "Error: " . $sql . "<br>" . mysqli_error($link);
 }

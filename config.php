@@ -1,5 +1,5 @@
 <?php
-$link= mysqli_connect('localhost','root','','store','3308');
+$link= mysqli_connect("localhost", "root", '',"store");
 if(!$link){
     die ('connection unsuccessful'. mysqli_error($link));
 }

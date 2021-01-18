@@ -1,21 +1,21 @@
 <?php
 include('session.php');
 
-if($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $id= $_POST['Id'];
-    
+if($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['submit']) ) {
+  
+    $id = $_POST['Id'];
+  
     $name=$_POST['Name'];
-
+  
     $cost= $_POST['Cost_price'];
 
-    $price= $_POST['price'];
+    $price= $_POST['price']; 
 
     $color=$_POST['Color'];
 
     $size = $_POST['size'];
 
     $Quantity=$_POST['Quantiy'];
-
     
     $sql= "UPDATE product set id='$id', Name='$name', Cost_price='$cost', price='$price' ,color='$color',size= '$size', Quantiy='$Quantity' WHERE id=$id";
      if(mysqli_query($connection,$sql)){

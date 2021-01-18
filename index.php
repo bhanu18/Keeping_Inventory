@@ -19,7 +19,7 @@ header("location: home.php");
 
     <title>Inventory &amp; Sales</title>
       <style>
-      #logInForm {              
+      #signUpForm {              
  display:none;
 }
 .toggleForms {

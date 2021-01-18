@@ -14,7 +14,7 @@ include('session.php');
       <?php include_once('header.php')?>
       <div class="container">
           <div class="jumbotron">
-         <h1 align="centre">Sale</h1> 
+         <h1>Sale</h1> 
           <a class="btn btn-primary" href="Add_sale.php" role="button">Add Sale</a>
           <br>
           <br>

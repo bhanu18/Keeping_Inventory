@@ -75,7 +75,7 @@ $row = mysqli_fetch_array($result);
     die("Redirect failed. Please click on this link: <a href='sale.php'>sale</a>");
 }
 else{
-    header("Location: localhost/store/sale.php");
+    header("Location:sale.php");
 }
 } else {
   echo "Error: " . $sql . "<br>" . mysqli_error($link);

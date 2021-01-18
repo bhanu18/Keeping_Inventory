@@ -1,5 +1,12 @@
 <?php
 include('session.php');
+
+$sql= "SELECT * FROM product";
+$result = mysqli_query($connection,$sql);
+$row= mysqli_fetch_array($result);
+if($row['Quantiy']<=1){
+  $message = " needs to be refilled";
+}
 ?>
 <!doctype html>
 <html lang="en">
@@ -16,6 +23,10 @@ include('session.php');
               <div class="jumbotron">
                   <h1 class="display-4">Inventory</h1>
                   <a class="btn btn-primary" href="add_product.php" role="button">Add Product</a>
+                  <br>
+                  <div class="alert alert-danger" role="alert">
+                  <?php echo $row['Name'].$message ?>
+                  </div>
           <table class="table table-hover">
   <thead>
     <tr>

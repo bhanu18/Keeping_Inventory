@@ -19,7 +19,7 @@
         <a class="nav-link" href="inventory.php">Inventory</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="Sale.php">Sale</a>
+        <a class="nav-link" href="Sale.php">Sale Report</a>
       </li>
         <li class="nav-item">
         <a class="nav-link" href="Add_sale.php">Add Sale</a>
@@ -28,12 +28,8 @@
     </ul>
       <ul class="navbar-nav ml-auto">
       <li class="nav-item">
-        <a class="nav-link" href="create_user.php"><i class="fa fa-user-plus" aria-hidden="true"></i>
-Sign Up</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="signin.php"><i class="fa fa-sign-in" aria-hidden="true"></i>
-Login</a>
+        <a class="nav-link" href="logout.php"><i class="fa fa-user-plus" aria-hidden="true"></i>
+Log Out</a>
       </li>
     </ul>
   </div>
@@ -41,6 +37,6 @@ Login</a>
 <?php 
   $link = mysqli_connect("localhost", "root", '',"store");
    if(!$link){
-    die ("Nooo");
+    die ("Failed to connect to the database");
 }
 ?>

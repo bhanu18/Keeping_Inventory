@@ -1,6 +1,6 @@
 <?php
 // Establishing Connection with Server by passing server_name, user_id and password as a parameter
-$connection = mysqli_connect("localhost", "root", "","store");
+$connection = mysqli_connect("localhost", "root", '',"store");
 session_start();// Starting Session
 // Storing Session
 $user_check=$_SESSION['login_user'];

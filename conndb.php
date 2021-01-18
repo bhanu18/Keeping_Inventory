@@ -1,5 +1,5 @@
 <?php 
-  $link = mysqli_connect("shareddb-w.hosting.stackcp.net", "annu23", 'MB5XEASOPwIf',"connweb-313439649c");
+  $link = mysqli_connect("localhost", "root", '',"store");
    if(!$link){
     die ("Nooo");
 }
