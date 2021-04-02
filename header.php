@@ -34,9 +34,3 @@ Log Out</a>
     </ul>
   </div>
 </nav>
-<?php 
-  $link = mysqli_connect("localhost", "root", '',"store");
-   if(!$link){
-    die ("Failed to connect to the database");
-}
-?>

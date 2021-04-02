@@ -76,8 +76,6 @@ font-weight: bold;
             
             $("#signUpForm").toggle();
             $("#logInForm").toggle();
-            
-            
         });
       </script>
       

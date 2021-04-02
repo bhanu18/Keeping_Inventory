@@ -1,5 +1,6 @@
 <?php
 include('session.php');
+include('function.php');
 ?>
 <!doctype html>
 <html lang="en">
@@ -45,25 +46,7 @@ include('session.php');
           </div>
       </div>
     <?php 
-    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-      $name = $_POST['name'];
-      $cost = $_POST['cost'];
-      $price =$_POST['price'];
-      $color = $_POST['color'];
-      $size =$_POST['size'];
-      $quantity = $_POST['quantity'];
-      //$sql= 'SELECT id FROM product';
-      //$row = mysqli_fetch_array(mysqli_query($link, $sql));
-      $sql = "INSERT INTO product (Name, Cost_price, price, Color, size, Quantiy) VALUES ('$name','$price','$cost','$color','$size','$quantity')";
-      //$sql='INSERT INTO `inventory`(`Product_id`, `Quantity`) VALUES ('.$row['id'].','.$quantity.')';
-      if (mysqli_query($link, $sql)) {
-  echo "New record created successfully";
-          echo "We will now redirect you to the members area";
-		header("Location:inventory.php");
-} else {
-  echo "Error: " . $sql . "<br>" . mysqli_error($link);
-}
-}
+     addProduct();
       ?>
   </body>
 </html>

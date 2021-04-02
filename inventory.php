@@ -1,18 +1,7 @@
 <?php
 include('session.php');
+include('function.php');
 
-$sql= "SELECT * FROM product";
-$result = mysqli_query($connection,$sql);
-$row= mysqli_fetch_array($result);
-
-$message = '';
-$database_quantity = '';
-$database_quantity =  $row['Quantiy'] ?: '';
-$database_name= $row['Name'];
-if($database_quantity<=1){
-  $message = " needs to be refilled";
-  // mail("bhanuvidh@windowslive.com", $database_name" item needs to be refill", "Regards")
-}
 ?>
 <!doctype html>
 <html lang="en">
@@ -31,7 +20,7 @@ if($database_quantity<=1){
                   <a class="btn btn-primary" href="add_product.php" role="button">Add Product</a>
                   <br>
                   <div class="alert alert-danger" role="alert">
-                  <?php echo $row['Name'].$message ?>
+                  <?php echo $message_inventory;?>
                   </div>
           <table class="table table-hover">
   <thead>
@@ -48,28 +37,9 @@ if($database_quantity<=1){
         
     </tr>
   </thead>
-  <tbody>
       <?php 
-      $sql = "SELECT * FROM product";
-      
-      $result = mysqli_query($link,$sql);
-      
-      while($row = mysqli_fetch_array($result)){
-          echo '<tr>
-        <td>'.$row["Id"].'</td>
-      <td>'.$row["Name"].'</td>
-      <td>'.$row["Cost_price"].'</td>
-      <td>'.$row["price"].'</td>
-      <td>'.$row["Color"].'</td>
-      <td>'.$row["size"].'</td>
-      <td>'.$row["Quantiy"].'</td>
-      <td><a class="btn btn-primary" href="update_inventory.php?Id='.$row["Id"].'">Update</a></td>
-      <td><a class="btn btn-danger" href="delete_inventory.php?Id='.$row["Id"].'">Delete</a></td>
-    </tr>';
-      }
-      mysqli_close($link);
+      displayInventory();
       ?>
-  </tbody>
 </table>
       </div>
 </div>

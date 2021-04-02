@@ -1,5 +1,6 @@
 <?php
 include('session.php');
+include('function.php');
 ?>
 <!doctype html>
 <html lang="en">
@@ -27,11 +28,7 @@ include('session.php');
 
   <option value="">Select a Product </option>
                 <?php
-                $query="select id,name from product";
-                $result = mysqli_query($link,$query);
-                    while($row = mysqli_fetch_array($result)){
-  echo "<option value=".$row['id']."name='product' >".$row['name']."</option>";
-}
+                selectProductDropdown();
 ?></select>
   </div>
 <!--
@@ -56,31 +53,7 @@ include('session.php');
 </form>
     
              <?php 
-                  if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-     // $id = $_POST['id'];
-      $product = intval($_POST['product']);
-      //$date =$_POST['date'];
-      $quan = $_POST['quantity'];
-     $size = $_POST['size'];
-      $price = $_POST['price'];
-   
-      $sql = "INSERT INTO items_sale (prod_id, sale_quantity,size, sale_price) VALUES ('$product','$quan','$size','$price')";
-      
-      if (mysqli_query($link, $sql)) {
-          $result = mysqli_query($connection,"Select * from product where id='".$product."'");
-$row = mysqli_fetch_array($result);
-          $row['Quantiy'] -= $quan; 
-          mysqli_query($link, "UPDATE product set Quantiy ='".$row['Quantiy']."' where Id='".$product."'");
-          if (headers_sent()) {
-    die("Redirect failed. Please click on this link: <a href='sale.php'>sale</a>");
-}
-else{
-    header("Location:sale.php");
-}
-} else {
-  echo "Error: " . $sql . "<br>" . mysqli_error($link);
-}
-                  }
+                  addSale();
       ?>
                   <script>
                       function getDate(){
