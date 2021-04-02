@@ -34,7 +34,9 @@ include('session.php');
     </tr>
   </thead>
   <tbody>
+
       <?php 
+      
       $sql = "SELECT * FROM product";
       
       $result = mysqli_query($link,$sql);
@@ -56,6 +58,7 @@ include('session.php');
       ?>
   </tbody>
 </table>
+</div>
 </div>
 </div>
          </div>

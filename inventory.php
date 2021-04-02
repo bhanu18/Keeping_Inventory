@@ -4,8 +4,14 @@ include('session.php');
 $sql= "SELECT * FROM product";
 $result = mysqli_query($connection,$sql);
 $row= mysqli_fetch_array($result);
-if($row['Quantiy']<=1){
+
+$message = '';
+$database_quantity = '';
+$database_quantity =  $row['Quantiy'] ?: '';
+$database_name= $row['Name'];
+if($database_quantity<=1){
   $message = " needs to be refilled";
+  // mail("bhanuvidh@windowslive.com", $database_name" item needs to be refill", "Regards")
 }
 ?>
 <!doctype html>
